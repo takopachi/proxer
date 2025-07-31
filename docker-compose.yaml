@@ -1,0 +1,18 @@
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - api1
+      - api2
+
+  api1:
+    build: ./api1
+    expose:
+      - "5001"
+
+  api2:
+    build: ./api2
+    expose:
+      - "5002"
